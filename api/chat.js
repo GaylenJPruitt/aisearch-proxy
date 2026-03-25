@@ -8,10 +8,11 @@ export default async function handler(req, res) {
 
   if (req.method !== "POST") return res.status(405).end();
 
-  if (req.headers["x-app-secret"] !== process.env.APP_SECRET) {
-    return res.status(401).json({ error: "Unauthorized" });
-  }
-
+  // TEMP: Disabled for testing
+// if (req.headers["x-app-secret"] !== process.env.APP_SECRET) {
+//   return res.status(401).json({ error: "Unauthorized" });
+// }
+  
   // ── Skip auth + usage checks during Snack testing ──────────────
   const user = { id: "test-user" };
 
